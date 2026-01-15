@@ -1,46 +1,52 @@
-import React from 'react';
+import chatgptLogo from '../assets/chatgpt-logo.svg';
+import grokLogo from '../assets/grok-logo.svg';
+import elevenlabsLogo from '../assets/elevenlabs-logo.svg';
+import openArtLogo from '../assets/open-Art.svg';
+import sunoLogo from '../assets/suno-logo.svg';
+import leonardoLogo from '../assets/leonardo ai.svg';
+import filmoraLogo from '../assets/filmora-logo.svg';
 
 const AITech = () => {
     const technologies = [
         {
             name: 'ChatGPT',
-            logo: '/src/assets/chatgpt-logo.svg',
+            logo: chatgptLogo,
             role: 'Story Architect',
             description: 'Engineered the complete narrative framework, dialogue systems, and character development for our mythological epic.'
         },
         {
             name: 'Grok',
-            logo: '/src/assets/grok-logo.svg',
+            logo: grokLogo,
             role: 'Concept Engine',
             description: 'Expanded futuristic concepts and world-building elements, enhancing the depth of Antharloka and cosmic lore.'
         },
         {
             name: 'Eleven Labs',
-            logo: '/src/assets/elevenlabs-logo.svg',
+            logo: elevenlabsLogo,
             role: 'Voice Synthesis',
             description: 'Created all character voices with emotional depth, bringing gods and legends to life through AI narration.'
         },
         {
             name: 'OpenArt',
-            logo: '/src/assets/open-Art.svg',
+            logo: openArtLogo,
             role: 'Visual Designer',
             description: 'Generated concept art, environment designs, and visual mood boards for the cinematic universe.'
         },
         {
             name: 'Suno AI',
-            logo: '/src/assets/suno-logo.svg',
+            logo: sunoLogo,
             role: 'Sonic Architect',
             description: 'Composed original cinematic scores and ambient soundscapes that define the epic atmosphere.'
         },
         {
             name: 'Leonardo AI',
-            logo: '/src/assets/leonardo ai.svg',
+            logo: leonardoLogo,
             role: 'Asset Generator',
             description: 'Designed characters, props, and sci-fi visual assets with high-fidelity imagery for production.'
         },
         {
             name: 'Filmora',
-            logo: '/src/assets/filmora-logo.svg',
+            logo: filmoraLogo,
             role: 'Cinematic Editor',
             description: 'Advanced video editing and post-production, bringing together all elements into polished cinematic masterpieces.'
         }
