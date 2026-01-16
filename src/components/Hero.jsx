@@ -120,7 +120,7 @@ const Hero = () => {
                                     color: 'var(--cyan)',
                                     fontFamily: 'Orbitron, sans-serif'
                                 }}>
-                                    7
+                                    8
                                 </div>
                                 <div style={{
                                     fontSize: '0.875rem',

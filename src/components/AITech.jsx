@@ -5,6 +5,8 @@ import openArtLogo from '../assets/open-Art.svg';
 import sunoLogo from '../assets/suno-logo.svg';
 import leonardoLogo from '../assets/leonardo ai.svg';
 import filmoraLogo from '../assets/filmora-logo.svg';
+import geminiLogo from '../assets/gemini-ai.svg';
+
 
 const AITech = () => {
     const technologies = [
@@ -13,6 +15,12 @@ const AITech = () => {
             logo: chatgptLogo,
             role: 'Story Architect',
             description: 'Engineered the complete narrative framework, dialogue systems, and character development for our mythological epic.'
+        },
+        {
+            name: 'Gemini AI',
+            logo: geminiLogo,
+            role: 'Neural Visionary',
+            description: 'Integrated advanced multimodal reasoning and visual intelligence to bridge the gap between mythic imagination and digital reality.'
         },
         {
             name: 'Grok',
@@ -73,7 +81,7 @@ const AITech = () => {
                         maxWidth: '700px',
                         margin: '0 auto'
                     }}>
-                        Seven neural systems working in harmony to create cinematic excellence
+                        Eight neural systems working in harmony to create cinematic excellence
                     </p>
                 </div>
 

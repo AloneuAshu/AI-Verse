@@ -1,15 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.jpg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const sections = ['home', 'chapter3', 'gallery', 'pricing', 'tech', 'contact'];
+    const observers = [];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px', // Trigger when section is in middle of viewport
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Chapter III', href: '#chapter3' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'AI Tech', href: '#tech' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', id: 'home' },
+    { name: 'Chapter III', href: '#chapter3', id: 'chapter3' },
+    { name: 'AI Tech', href: '#tech', id: 'tech' },
+    { name: 'Gallery', href: '#gallery', id: 'gallery' },
+    { name: 'Pricing', href: '#pricing', id: 'pricing' },
+    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   return (
@@ -38,7 +71,7 @@ const Navbar = () => {
             textDecoration: 'none'
           }}>
             <img
-              src="/src/assets/logo.jpg"
+              src={logo}
               alt="AI Verse Studios"
               style={{
                 height: '50px',
@@ -70,18 +103,29 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 style={{
-                  color: 'var(--text-gray)',
+                  color: activeSection === link.id ? 'var(--cyan)' : 'var(--text-gray)',
                   textDecoration: 'none',
                   fontSize: '0.875rem',
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '0.1em',
-                  transition: 'color 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  padding: '0.5rem 0'
                 }}
-                onMouseEnter={(e) => e.target.style.color = 'var(--cyan)'}
-                onMouseLeave={(e) => e.target.style.color = 'var(--text-gray)'}
               >
                 {link.name}
+                {activeSection === link.id && (
+                  <span style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '2px',
+                    background: 'var(--cyan)',
+                    boxShadow: '0 0 10px var(--cyan-glow)'
+                  }} />
+                )}
               </a>
             ))}
           </div>
@@ -116,12 +160,15 @@ const Navbar = () => {
                 style={{
                   display: 'block',
                   padding: '1rem 0',
-                  color: 'var(--text-gray)',
+                  color: activeSection === link.id ? 'var(--cyan)' : 'var(--text-gray)',
                   textDecoration: 'none',
                   fontSize: '0.875rem',
                   fontWeight: '600',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.1em'
+                  letterSpacing: '0.1em',
+                  borderLeft: activeSection === link.id ? '2px solid var(--cyan)' : 'none',
+                  paddingLeft: activeSection === link.id ? '1rem' : '0',
+                  transition: 'all 0.3s ease'
                 }}
               >
                 {link.name}

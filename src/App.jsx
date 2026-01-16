@@ -4,8 +4,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Chapter3 from './components/Chapter3';
 import Gallery from './components/Gallery';
+import Pricing from './components/Pricing';
 import AITech from './components/AITech';
 import { Mail, Send, MessageSquare } from 'lucide-react';
+import logo from './assets/logo.jpg';
 
 function App() {
   return (
@@ -20,8 +22,9 @@ function App() {
       <main>
         <Hero />
         <Chapter3 />
-        <Gallery />
         <AITech />
+        <Gallery />
+        <Pricing />
 
         {/* Contact */}
         <section id="contact" style={{ padding: '8rem 0', background: 'rgba(0, 240, 255, 0.02)' }}>
@@ -180,7 +183,7 @@ function App() {
               marginBottom: '1rem'
             }}>
               <img
-                src="/src/assets/logo.jpg"
+                src={logo}
                 alt="AI Verse Studios"
                 style={{
                   height: '40px',

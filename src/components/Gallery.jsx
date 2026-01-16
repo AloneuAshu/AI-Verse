@@ -1,5 +1,6 @@
 import React from 'react';
 import { Film, Image, Palette, Sparkles, Camera, Layers } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Gallery = () => {
     const galleryItems = [
@@ -9,8 +10,7 @@ const Gallery = () => {
             category: 'Video',
             icon: <Film size={32} />,
             description: 'Epic cinematic trailer showcasing the full scope of Chapter III',
-            link: '#chapter3',
-            videoUrl: 'https://www.youtube.com/watch?v=A651D8NCcmw'
+            link: '#chapter3'
         },
         {
             id: 2,
@@ -87,14 +87,14 @@ const Gallery = () => {
                             href={item.link}
                             style={{ textDecoration: 'none' }}
                         >
-                            <div
+                            <motion.div
                                 className="card"
+                                whileHover={{ y: -5 }}
                                 style={{
                                     height: '100%',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.3s ease'
+                                    cursor: 'pointer'
                                 }}
                             >
                                 {/* Icon Area */}
@@ -109,7 +109,6 @@ const Gallery = () => {
                                     position: 'relative',
                                     overflow: 'hidden'
                                 }}>
-                                    {/* Background Pattern */}
                                     <div style={{
                                         position: 'absolute',
                                         top: 0,
@@ -121,14 +120,11 @@ const Gallery = () => {
                                         backgroundPosition: '0 0, 10px 10px',
                                         opacity: 0.3
                                     }} />
-
-                                    {/* Icon */}
                                     <div style={{ position: 'relative', zIndex: 1 }}>
                                         {item.icon}
                                     </div>
                                 </div>
 
-                                {/* Category Badge */}
                                 <div style={{
                                     display: 'inline-block',
                                     padding: '0.25rem 0.75rem',
@@ -142,7 +138,6 @@ const Gallery = () => {
                                     {item.category}
                                 </div>
 
-                                {/* Title */}
                                 <h3 style={{
                                     fontSize: '1.5rem',
                                     fontFamily: 'Orbitron, sans-serif',
@@ -152,7 +147,6 @@ const Gallery = () => {
                                     {item.title}
                                 </h3>
 
-                                {/* Description */}
                                 <p style={{
                                     fontSize: '1rem',
                                     color: 'var(--text-gray)',
@@ -161,7 +155,7 @@ const Gallery = () => {
                                 }}>
                                     {item.description}
                                 </p>
-                            </div>
+                            </motion.div>
                         </a>
                     ))}
                 </div>
