@@ -40,10 +40,14 @@ const Hero = () => {
                         }}>
                             AI VERSE
                             <br />
-                            <span style={{
-                                color: 'var(--cyan)',
-                                textShadow: '0 0 30px var(--cyan-glow)'
-                            }}>
+                            <span
+                                className="glitch-text"
+                                data-text="STUDIOS"
+                                style={{
+                                    color: 'var(--cyan)',
+                                    textShadow: '0 0 30px var(--cyan-glow)'
+                                }}
+                            >
                                 STUDIOS
                             </span>
                         </h1>

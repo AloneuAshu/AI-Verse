@@ -1,6 +1,7 @@
 import React from 'react';
 import { Film, Image, Palette, Sparkles, Camera, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
+import TiltCard from './TiltCard';
 
 const Gallery = () => {
     const galleryItems = [
@@ -9,6 +10,7 @@ const Gallery = () => {
             title: 'Final Trailer',
             category: 'Video',
             icon: <Film size={32} />,
+            image: 'https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80',
             description: 'Epic cinematic trailer showcasing the full scope of Chapter III',
             link: '#chapter3'
         },
@@ -17,6 +19,7 @@ const Gallery = () => {
             title: 'Character Design',
             category: 'Concept Art',
             icon: <Palette size={32} />,
+            image: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80',
             description: 'AI-generated character designs for gods and mythological beings',
             link: '#'
         },
@@ -25,6 +28,7 @@ const Gallery = () => {
             title: 'Environment Art',
             category: 'Concept Art',
             icon: <Layers size={32} />,
+            image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80',
             description: 'Antharloka realm and cosmic landscapes visualization',
             link: '#'
         },
@@ -33,6 +37,7 @@ const Gallery = () => {
             title: 'Visual Effects',
             category: 'Production',
             icon: <Sparkles size={32} />,
+            image: 'https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?auto=format&fit=crop&w=800&q=80',
             description: 'AI-powered VFX and cinematic effects breakdown',
             link: '#'
         },
@@ -41,6 +46,7 @@ const Gallery = () => {
             title: 'Behind The Scenes',
             category: 'Production',
             icon: <Camera size={32} />,
+            image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80',
             description: 'AI production process and creative workflow insights',
             link: '#'
         },
@@ -49,6 +55,7 @@ const Gallery = () => {
             title: 'Storyboards',
             category: 'Pre-Production',
             icon: <Image size={32} />,
+            image: 'https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?auto=format&fit=crop&w=800&q=80',
             description: 'AI-generated storyboards and scene compositions',
             link: '#'
         }
@@ -87,75 +94,103 @@ const Gallery = () => {
                             href={item.link}
                             style={{ textDecoration: 'none' }}
                         >
-                            <motion.div
+                            <TiltCard
                                 className="card"
-                                whileHover={{ y: -5 }}
                                 style={{
                                     height: '100%',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    overflow: 'hidden',
+                                    padding: 0 // Reset padding for image
                                 }}
                             >
-                                {/* Icon Area */}
+                                {/* Image Area */}
                                 <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: '200px',
-                                    background: 'rgba(0, 240, 255, 0.05)',
-                                    marginBottom: '1.5rem',
-                                    color: 'var(--cyan)',
+                                    height: '250px',
                                     position: 'relative',
-                                    overflow: 'hidden'
+                                    overflow: 'hidden',
+                                    background: 'var(--bg-black)'
                                 }}>
                                     <div style={{
                                         position: 'absolute',
-                                        top: 0,
-                                        left: 0,
-                                        right: 0,
-                                        bottom: 0,
-                                        backgroundImage: 'linear-gradient(45deg, rgba(0, 240, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 240, 255, 0.1) 75%, rgba(0, 240, 255, 0.1)), linear-gradient(45deg, rgba(0, 240, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 240, 255, 0.1) 75%, rgba(0, 240, 255, 0.1))',
-                                        backgroundSize: '20px 20px',
-                                        backgroundPosition: '0 0, 10px 10px',
-                                        opacity: 0.3
+                                        inset: 0,
+                                        background: 'rgba(0, 240, 255, 0.1)',
+                                        zIndex: 1
                                     }} />
-                                    <div style={{ position: 'relative', zIndex: 1 }}>
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.parentElement.style.backgroundImage = 'radial-gradient(circle at center, rgba(0, 240, 255, 0.2), #000)';
+                                        }}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                            transition: 'transform 0.5s ease'
+                                        }}
+                                        className="gallery-image"
+                                    />
+
+                                    {/* Overlay Icon */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        bottom: '1rem',
+                                        right: '1rem',
+                                        background: 'rgba(0,0,0,0.7)',
+                                        padding: '0.5rem',
+                                        borderRadius: '50%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        border: '1px solid var(--cyan)',
+                                        color: 'var(--cyan)',
+                                        zIndex: 2,
+                                        backdropFilter: 'blur(5px)'
+                                    }}>
                                         {item.icon}
+                                    </div>
+
+                                    {/* Category Badge */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '1rem',
+                                        left: '1rem',
+                                        padding: '0.25rem 0.75rem',
+                                        background: 'rgba(0, 240, 255, 0.1)',
+                                        border: '1px solid var(--cyan)',
+                                        fontSize: '0.75rem',
+                                        letterSpacing: '0.1em',
+                                        color: 'var(--cyan)',
+                                        zIndex: 2,
+                                        backdropFilter: 'blur(5px)'
+                                    }}>
+                                        {item.category}
                                     </div>
                                 </div>
 
-                                <div style={{
-                                    display: 'inline-block',
-                                    padding: '0.25rem 0.75rem',
-                                    border: '1px solid var(--cyan)',
-                                    fontSize: '0.75rem',
-                                    letterSpacing: '0.1em',
-                                    color: 'var(--cyan)',
-                                    marginBottom: '1rem',
-                                    width: 'fit-content'
-                                }}>
-                                    {item.category}
+                                <div style={{ padding: '2rem' }}>
+                                    <h3 style={{
+                                        fontSize: '1.5rem',
+                                        fontFamily: 'Orbitron, sans-serif',
+                                        marginBottom: '1rem',
+                                        color: 'var(--text-white)'
+                                    }}>
+                                        {item.title}
+                                    </h3>
+
+                                    <p style={{
+                                        fontSize: '1rem',
+                                        color: 'var(--text-gray)',
+                                        lineHeight: '1.6',
+                                        marginBottom: 0
+                                    }}>
+                                        {item.description}
+                                    </p>
                                 </div>
-
-                                <h3 style={{
-                                    fontSize: '1.5rem',
-                                    fontFamily: 'Orbitron, sans-serif',
-                                    marginBottom: '1rem',
-                                    color: 'var(--text-white)'
-                                }}>
-                                    {item.title}
-                                </h3>
-
-                                <p style={{
-                                    fontSize: '1rem',
-                                    color: 'var(--text-gray)',
-                                    lineHeight: '1.6',
-                                    flex: 1
-                                }}>
-                                    {item.description}
-                                </p>
-                            </motion.div>
+                            </TiltCard>
                         </a>
                     ))}
                 </div>

@@ -1,40 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg';
 
-const Navbar = () => {
+const Navbar = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  useEffect(() => {
-    const sections = ['home', 'chapter3', 'gallery', 'pricing', 'tech', 'contact'];
-    const observers = [];
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-50% 0px -50% 0px', // Trigger when section is in middle of viewport
-      threshold: 0
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    sections.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
@@ -182,6 +151,7 @@ const Navbar = () => {
         @media (min-width: 768px) {
           .desktop-menu {
             display: flex !important;
+            flex-direction: row;
           }
           .mobile-toggle {
             display: none !important;

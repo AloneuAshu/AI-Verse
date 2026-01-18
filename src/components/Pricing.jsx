@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, Check, Zap, Film, Star } from 'lucide-react';
+import TiltCard from './TiltCard';
 
 const Pricing = () => {
     const packages = [
@@ -100,7 +101,7 @@ const Pricing = () => {
                 {/* Pricing Grid */}
                 <div className="grid grid-3">
                     {packages.map((pkg) => (
-                        <div
+                        <TiltCard
                             key={pkg.name}
                             className="card"
                             style={{
@@ -199,7 +200,7 @@ const Pricing = () => {
                             }}>
                                 GET STARTED
                             </a>
-                        </div>
+                        </TiltCard>
                     ))}
                 </div>
             </div>
