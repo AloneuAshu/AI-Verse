@@ -57,26 +57,34 @@ const AITerminal = ({ activeSection }) => {
 
     if (!isOpen) {
         return (
-            <button
-                onClick={() => setIsOpen(true)}
-                style={{
-                    position: 'fixed',
-                    bottom: '20px',
-                    right: '20px',
-                    background: 'rgba(0, 0, 0, 0.9)',
-                    border: '1px solid var(--cyan)',
-                    color: 'var(--cyan)',
-                    padding: '10px 15px',
-                    fontFamily: 'monospace',
-                    fontSize: '12px',
-                    zIndex: 1000,
-                    cursor: 'pointer',
-                    borderRadius: '5px',
-                    boxShadow: '0 0 15px rgba(0, 240, 255, 0.2)'
-                }}
-            >
-                TERMINAL_
-            </button>
+            <>
+                <style>{`
+                    @media (max-width: 768px) {
+                        .ai-terminal-toggle { display: none !important; }
+                    }
+                `}</style>
+                <button
+                    className="ai-terminal-toggle"
+                    onClick={() => setIsOpen(true)}
+                    style={{
+                        position: 'fixed',
+                        bottom: '20px',
+                        right: '20px',
+                        background: 'rgba(0, 0, 0, 0.9)',
+                        border: '1px solid var(--cyan)',
+                        color: 'var(--cyan)',
+                        padding: '10px 15px',
+                        fontFamily: 'monospace',
+                        fontSize: '12px',
+                        zIndex: 1000,
+                        cursor: 'pointer',
+                        borderRadius: '5px',
+                        boxShadow: '0 0 15px rgba(0, 240, 255, 0.2)'
+                    }}
+                >
+                    TERMINAL_
+                </button>
+            </>
         );
     }
 

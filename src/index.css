@@ -335,3 +335,9 @@ p {
   95% { clip: rect(89px, 9999px, 95px, 0); }
   100% { clip: rect(48px, 9999px, 60px, 0); }
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-black); border-left: 1px solid rgba(0, 240, 255, 0.1); }
+::-webkit-scrollbar-thumb { background: rgba(0, 240, 255, 0.3); border: 1px solid var(--cyan); }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); box-shadow: 0 0 10px var(--cyan-glow); }

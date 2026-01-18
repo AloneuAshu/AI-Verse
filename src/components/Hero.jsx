@@ -1,5 +1,6 @@
 import React from 'react';
 import { Play, ArrowRight } from 'lucide-react';
+import DecryptedText from './DecryptedText';
 
 const Hero = () => {
     return (
@@ -106,7 +107,7 @@ const Hero = () => {
                                     color: 'var(--cyan)',
                                     fontFamily: 'Orbitron, sans-serif'
                                 }}>
-                                    100%
+                                    <DecryptedText text="100%" speed={40} maxIterations={15} />
                                 </div>
                                 <div style={{
                                     fontSize: '0.875rem',
@@ -114,7 +115,7 @@ const Hero = () => {
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.1em'
                                 }}>
-                                    AI Generated
+                                    <DecryptedText text="AI Generated" speed={20} />
                                 </div>
                             </div>
                             <div>
@@ -124,7 +125,7 @@ const Hero = () => {
                                     color: 'var(--cyan)',
                                     fontFamily: 'Orbitron, sans-serif'
                                 }}>
-                                    8
+                                    <DecryptedText text="8" speed={100} maxIterations={20} />
                                 </div>
                                 <div style={{
                                     fontSize: '0.875rem',
@@ -132,7 +133,7 @@ const Hero = () => {
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.1em'
                                 }}>
-                                    AI Systems
+                                    <DecryptedText text="AI Systems" speed={20} />
                                 </div>
                             </div>
                             <div>
@@ -142,7 +143,7 @@ const Hero = () => {
                                     color: 'var(--cyan)',
                                     fontFamily: 'Orbitron, sans-serif'
                                 }}>
-                                    2026
+                                    <DecryptedText text="2026" speed={60} maxIterations={20} />
                                 </div>
                                 <div style={{
                                     fontSize: '0.875rem',
@@ -150,7 +151,7 @@ const Hero = () => {
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.1em'
                                 }}>
-                                    Release Year
+                                    <DecryptedText text="Release Year" speed={20} />
                                 </div>
                             </div>
                         </div>

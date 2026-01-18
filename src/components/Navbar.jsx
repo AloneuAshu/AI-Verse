@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { motion, useScroll } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg';
 
 const Navbar = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
@@ -25,6 +27,19 @@ const Navbar = ({ activeSection }) => {
       backdropFilter: 'blur(10px)',
       borderBottom: '1px solid rgba(0, 240, 255, 0.2)'
     }}>
+      <motion.div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '2px',
+          background: 'var(--cyan)',
+          transformOrigin: '0%',
+          scaleX: scrollYProgress,
+          boxShadow: '0 0 10px var(--cyan-glow)' // optional glow
+        }}
+      />
       <div className="container">
         <div style={{
           display: 'flex',

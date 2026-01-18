@@ -50,6 +50,12 @@ const CustomCursor = () => {
             <style>{`
                 body { cursor: none; }
                 a, button { cursor: none; }
+                
+                @media (hover: none) and (pointer: coarse) {
+                    body { cursor: auto; }
+                    a, button { cursor: pointer; }
+                    .custom-cursor-ring { display: none !important; }
+                }
             `}</style>
 
             {/* Outer Ring */}
