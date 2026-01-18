@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ReactLenis } from 'lenis/react'
 import { AnimatePresence, motion } from 'framer-motion';
 import Preloader from './components/Preloader';
 import Starfield from './components/Starfield';
@@ -63,13 +64,14 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ReactLenis root>
       <AnimatePresence mode="wait">
         {loading && <Preloader onComplete={() => setLoading(false)} />}
       </AnimatePresence>
 
       {!loading && (
         <div style={{ position: 'relative', minHeight: '100vh' }}>
+          <div className="digital-noise" />
           <CustomCursor />
           {/* Subtle Starfield */}
           <Starfield />
@@ -306,7 +308,7 @@ function App() {
           </main>
         </div>
       )}
-    </>
+    </ReactLenis>
   );
 }
 
