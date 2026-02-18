@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/AIVerseLogo.jpeg';
 
 const Preloader = ({ onComplete }) => {
     const [progress, setProgress] = useState(0);
@@ -63,15 +64,24 @@ const Preloader = ({ onComplete }) => {
             {/* Container */}
             <div style={{ width: '300px', textAlign: 'center' }}>
 
-                {/* Header Text */}
-                <h2 style={{
-                    color: 'var(--cyan)',
-                    fontSize: '1.5rem',
-                    marginBottom: '2rem',
-                    letterSpacing: '0.2em'
-                }}>
-                    AI VERSE STUDIOS
-                </h2>
+                {/* Logo */}
+                <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'center' }}>
+                    <motion.img
+                        src={logo}
+                        alt="AI Verse Studios"
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        style={{
+                            height: '100px',
+                            width: '100px',
+                            objectFit: 'cover',
+                            borderRadius: '50%',
+                            border: '2px solid var(--cyan)',
+                            boxShadow: '0 0 25px var(--cyan-glow)'
+                        }}
+                    />
+                </div>
 
                 {/* Text Status */}
                 <div style={{
