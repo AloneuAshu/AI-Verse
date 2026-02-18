@@ -5,46 +5,44 @@ import TiltCard from './TiltCard';
 const Pricing = () => {
     const packages = [
         {
-            name: 'TEASER',
-            duration: '15 Seconds',
-            price: '$499',
+            name: 'TRAILER',
+            duration: '2 Minutes',
+            price: '$143',
             icon: <Zap size={32} />,
             features: [
-                '4K AI Video Generation',
-                'Basic Sound Design',
-                '1 Revision',
-                'Social Media License',
-                '7 Day Turnaround'
+                'Full 4K AI Video Trailer',
+                'Custom Music & Sound FX',
+                'Character Continuity',
+                'Commercial Rights',
+                '7 Day Delivery'
             ],
             recommended: false
         },
         {
-            name: 'TRAILER',
-            duration: '30 Seconds',
-            price: '$899',
+            name: 'STORY BOARD',
+            duration: '20 Minutes',
+            price: '$6,000',
             icon: <Film size={32} />,
             features: [
-                '4K AI Video Generation',
-                'Premium Sound Design & SFX',
-                'Voiceover Included',
-                '2 Revisions',
-                'Commercial License',
-                '14 Day Turnaround'
+                'Complete AI Storyboarding',
+                'Scene-by-Scene Breakdown',
+                'Character Concept Art',
+                'Pacing & Visual Flow',
+                'Full Narrative Support'
             ],
             recommended: true
         },
         {
-            name: 'CINEMATIC',
-            duration: '60 Seconds',
-            price: '$1,499',
+            name: 'CINEMATIC TOTAL',
+            duration: '2 Hours',
+            price: '$30,000',
             icon: <Star size={32} />,
             features: [
-                'Full Cinematic Storytelling',
-                'Custom Original Score',
-                'Professional Voice Acting',
-                'Unlimited Revisions',
-                'Global Broadcast License',
-                '30 Day Turnaround'
+                'Feature-Length Production',
+                'Original Orchestral Score',
+                'Professional Post-Processing',
+                'Multiple Language Dubbing',
+                'World-Building Asset Pack'
             ],
             recommended: false
         }
