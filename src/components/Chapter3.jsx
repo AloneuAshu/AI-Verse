@@ -82,7 +82,7 @@ const Chapter3 = () => {
                                     width: '100%',
                                     height: '100%'
                                 }}
-                                src="https://www.youtube.com/embed/A651D8NCcmw"
+                                src="https://www.youtube.com/embed/y9yXu4s1eCs"
                                 title="CHAPTER III – FINAL TRAILER"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen

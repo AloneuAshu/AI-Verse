@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/AIVerseLogo.jpeg';
 
 const Navbar = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);

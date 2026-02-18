@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import logo from '../assets/AIVerseLogo.jpeg';
 
 const CustomCursor = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -65,47 +66,47 @@ const CustomCursor = () => {
                     position: 'fixed',
                     left: 0,
                     top: 0,
-                    width: isHovering ? '50px' : '30px',
-                    height: isHovering ? '50px' : '30px',
+                    width: isHovering ? '60px' : '40px',
+                    height: isHovering ? '60px' : '40px',
                     border: '1px solid var(--cyan)',
                     borderRadius: '50%',
                     pointerEvents: 'none',
                     transform: 'translate(-50%, -50%)',
                     zIndex: 9999,
-                    transition: 'width 0.2s, height 0.2s, background-color 0.2s',
-                    backgroundColor: isHovering ? 'rgba(0, 240, 255, 0.1)' : 'transparent',
-                    boxShadow: isHovering ? '0 0 15px var(--cyan-glow)' : 'none',
-                    mixBlendMode: 'difference'
+                    transition: 'width 0.3s cubic-bezier(0.23, 1, 0.32, 1), height 0.3s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s',
+                    backgroundColor: isHovering ? 'rgba(0, 240, 255, 0.15)' : 'transparent',
+                    boxShadow: isHovering ? '0 0 20px var(--cyan-glow)' : 'none',
                 }}
                 className="custom-cursor-ring"
             />
 
-            {/* Inner Dot */}
+            {/* Logo Cursor */}
             <div
-                ref={dotRef}
                 style={{
                     position: 'fixed',
                     left: position.x,
                     top: position.y,
-                    width: '6px',
-                    height: '6px',
-                    backgroundColor: 'var(--cyan)',
-                    borderRadius: '50%',
+                    width: isHovering ? '30px' : '24px',
+                    height: isHovering ? '30px' : '24px',
                     pointerEvents: 'none',
                     transform: 'translate(-50%, -50%)',
-                    zIndex: 9999,
-                    mixBlendMode: 'difference'
+                    zIndex: 10000,
+                    transition: 'width 0.3s, height 0.3s',
+                    filter: 'drop-shadow(0 0 5px var(--cyan-glow))'
                 }}
-            />
-
-            {/* Trailing Logic would typically involve requestAnimationFrame for smoothness, 
-                but CSS transition on the ring gives a "magnetic" lag effect naturally. 
-                We use direct coordinates for the dot for responsiveness 
-                and update the ring via ref/style in a real loop for better performance 
-                if we wanted complex physics. For now, React state is "okay" but 
-                direct DOM manipulation is smoother for cursors. 
-            */}
-            <CursorUpdater cursorRef={cursorRef} position={position} />
+            >
+                <img
+                    src={logo}
+                    alt="Logo Cursor"
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        borderRadius: '50%',
+                        border: '1px solid var(--cyan)'
+                    }}
+                />
+            </div>
         </>
     );
 };

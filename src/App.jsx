@@ -10,7 +10,7 @@ import Gallery from './components/Gallery';
 import Pricing from './components/Pricing';
 import AITech from './components/AITech';
 import { Mail, Send, MessageSquare } from 'lucide-react';
-import logo from './assets/logo.jpg';
+import logo from './assets/AIVerseLogo.jpeg';
 import AITerminal from './components/AITerminal';
 
 import RevealSection from './components/RevealSection';
