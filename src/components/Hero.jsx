@@ -125,7 +125,7 @@ const Hero = () => {
                                     color: 'var(--cyan)',
                                     fontFamily: 'Orbitron, sans-serif'
                                 }}>
-                                    <DecryptedText text="8" speed={100} maxIterations={20} />
+                                    <DecryptedText text="9" speed={100} maxIterations={20} />
                                 </div>
                                 <div style={{
                                     fontSize: '0.875rem',

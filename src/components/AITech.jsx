@@ -6,10 +6,17 @@ import sunoLogo from '../assets/suno-logo.svg';
 import leonardoLogo from '../assets/leonardo ai.svg';
 import filmoraLogo from '../assets/filmora-logo.svg';
 import geminiLogo from '../assets/gemini-ai.svg';
+import seadanceLogo from '../assets/seadance-logo.png';
 
 
 const AITech = () => {
     const technologies = [
+        {
+            name: 'SeaDance 2.0',
+            logo: seadanceLogo,
+            role: 'Video Director',
+            description: 'Powered cinematic AI video generation with state-of-the-art motion synthesis, transforming static concepts into breathtaking moving sequences.'
+        },
         {
             name: 'ChatGPT',
             logo: chatgptLogo,
@@ -81,7 +88,7 @@ const AITech = () => {
                         maxWidth: '700px',
                         margin: '0 auto'
                     }}>
-                        Eight neural systems working in harmony to create cinematic excellence
+                        Nine neural systems working in harmony to create cinematic excellence
                     </p>
                 </div>
 
