@@ -14,6 +14,7 @@ const AITech = () => {
         {
             name: 'SeaDance 2.0',
             logo: seadanceLogo,
+            rawLogo: true,
             role: 'Video Director',
             description: 'Powered cinematic AI video generation with state-of-the-art motion synthesis, transforming static concepts into breathtaking moving sequences.'
         },
@@ -119,8 +120,9 @@ const AITech = () => {
                                         height: '60px',
                                         width: '60px',
                                         objectFit: 'contain',
-                                        filter: 'brightness(0) invert(1)',
-                                        opacity: '0.9'
+                                        filter: tech.rawLogo ? 'none' : 'brightness(0) invert(1)',
+                                        opacity: '0.9',
+                                        borderRadius: tech.rawLogo ? '10px' : '0'
                                     }}
                                 />
                             </div>
